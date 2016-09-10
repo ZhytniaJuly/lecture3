@@ -4,14 +4,12 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         int counter = 0;
         int limit = 100;
-
         String progressBar[];
         progressBar = new String[]{"[", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "]"};
-
         while (counter <= limit) {
             createProgressLabel(counter, progressBar);
             Thread.sleep(100);
-            counter = counter + 10;
+            counter = counter + 1;
         }
     }
 
@@ -20,21 +18,11 @@ public class Main {
             int i = counter / 10;
             progressBar[i] = "|";
         }
-        if (counter < 100){
-            for (int i = 0; i < 10 ; i++) {
-                printMethod(progressBar);
-                System.out.println(counter+i +"%");
-            }
-        } else {
-            printMethod(progressBar);
-            System.out.println(counter +"%");
-        }
-
-    }
-    private static void printMethod(String[] progressBar) {
         for (int j = 0; j < 12; j++) {
             System.out.print(progressBar[j]);
         }
+        System.out.println(counter +"%");
     }
+
 }
 
