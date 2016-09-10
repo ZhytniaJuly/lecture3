@@ -1,29 +1,40 @@
 package com.company;
 
 public class Main {
-
     public static void main(String[] args) throws InterruptedException {
         int counter = 0;
         int limit = 100;
-        String progressBar = "";
-        while(counter<=limit){
-            String progressLabel = "[";
-            if (counter % 10 == 0 && counter >= 10){
-                progressBar +="|";
-            }
-            progressLabel += progressBar;
-            int spaceNum = (limit-counter)/10;
-            for (int cursor = 0; cursor < spaceNum ; cursor++) {
-                progressLabel +="*";
-            }
-            progressLabel += "]";
+
+        String progressBar[];
+        progressBar = new String[]{"[", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "]"};
+
+        while (counter <= limit) {
+            createProgressLabel(counter, progressBar);
             Thread.sleep(100);
-            if( counter % 10 == 0) {
-                System.out.println(progressLabel + "" + counter + "%");
+            counter = counter + 10;
+        }
+    }
+
+    private static void createProgressLabel(int counter, String[] progressBar) {
+        if (counter % 10 == 0 && counter >= 10) {
+            int i = counter / 10;
+            progressBar[i] = "|";
+        }
+        if (counter < 100){
+            for (int i = 0; i < 10 ; i++) {
+                printMethod(progressBar);
+                System.out.println(counter+i +"%");
             }
-            counter=counter+1;
+        } else {
+            printMethod(progressBar);
+            System.out.println(counter +"%");
         }
 
+    }
+    private static void printMethod(String[] progressBar) {
+        for (int j = 0; j < 12; j++) {
+            System.out.print(progressBar[j]);
+        }
     }
 }
 
