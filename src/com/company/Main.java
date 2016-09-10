@@ -7,13 +7,13 @@ public class Main {
         String progressBar[];
         progressBar = new String[]{"[", "*", "*", "*", "*", "*", "*", "*", "*", "*", "*", "]"};
         while (counter <= limit) {
-            createProgressLabel(counter, progressBar);
+            printProgressBar(counter, progressBar);
             Thread.sleep(100);
             counter++;
         }
     }
 
-    private static void createProgressLabel(int counter, String[] progressBar) {
+    private static void printProgressBar(int counter, String[] progressBar) {
         if (counter % 10 == 0 && counter >= 10) {
             int i = counter / 10;
             progressBar[i] = "|";
