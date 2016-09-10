@@ -9,7 +9,7 @@ public class Main {
         while (counter <= limit) {
             createProgressLabel(counter, progressBar);
             Thread.sleep(100);
-            counter = counter + 1;
+            counter = counter++;
         }
     }
 
